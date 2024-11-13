@@ -1,0 +1,40 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FileLocatorServiceService WSDL service -->
+
+  <service name="FileLocatorService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soap.infokristaly.hu"/>
+      <parameter name="wsdlServiceElement" value="FileLocatorServiceService"/>
+      <parameter name="schemaQualified" value="http://soap.infokristaly.hu"/>
+      <parameter name="wsdlServicePort" value="FileLocatorService"/>
+      <parameter name="className" value="hu.infokristaly.soap.FileLocatorServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="FileLocatorService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="find" qname="operNS:find" xmlns:operNS="http://soap.infokristaly.hu" returnQName="retNS:findReturn" xmlns:retNS="http://soap.infokristaly.hu" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:namePattern" xmlns:pns="http://soap.infokristaly.hu" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addFileLocation" qname="operNS:addFileLocation" xmlns:operNS="http://soap.infokristaly.hu" returnQName="retNS:addFileLocationReturn" xmlns:retNS="http://soap.infokristaly.hu" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:fileName" xmlns:pns="http://soap.infokristaly.hu" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:path" xmlns:pns="http://soap.infokristaly.hu" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:location" xmlns:pns="http://soap.infokristaly.hu" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addPath" qname="operNS:addPath" xmlns:operNS="http://soap.infokristaly.hu" returnQName="retNS:addPathReturn" xmlns:retNS="http://soap.infokristaly.hu" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:path" xmlns:pns="http://soap.infokristaly.hu" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addLocation" qname="operNS:addLocation" xmlns:operNS="http://soap.infokristaly.hu" returnQName="retNS:addLocationReturn" xmlns:retNS="http://soap.infokristaly.hu" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://soap.infokristaly.hu" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="find addFileLocation addLocation addPath"/>
+
+  </service>
+</deployment>

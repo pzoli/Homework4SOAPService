@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soap.infokristaly.hu" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soap.infokristaly.hu" xmlns:intf="http://soap.infokristaly.hu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soap.infokristaly.hu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="find">
+    <complexType>
+     <sequence>
+      <element name="namePattern" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findResponse">
+    <complexType>
+     <sequence>
+      <element name="findReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addFileLocation">
+    <complexType>
+     <sequence>
+      <element name="fileName" type="xsd:string"/>
+      <element name="path" type="xsd:int"/>
+      <element name="location" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addFileLocationResponse">
+    <complexType>
+     <sequence>
+      <element name="addFileLocationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPath">
+    <complexType>
+     <sequence>
+      <element name="path" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addPathResponse">
+    <complexType>
+     <sequence>
+      <element name="addPathReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addLocation">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addLocationResponse">
+    <complexType>
+     <sequence>
+      <element name="addLocationReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="findRequest">
+
+      <wsdl:part element="impl:find" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addPathRequest">
+
+      <wsdl:part element="impl:addPath" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addPathResponse">
+
+      <wsdl:part element="impl:addPathResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addLocationRequest">
+
+      <wsdl:part element="impl:addLocation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFileLocationResponse">
+
+      <wsdl:part element="impl:addFileLocationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findResponse">
+
+      <wsdl:part element="impl:findResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFileLocationRequest">
+
+      <wsdl:part element="impl:addFileLocation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addLocationResponse">
+
+      <wsdl:part element="impl:addLocationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FileLocatorService">
+
+      <wsdl:operation name="find">
+
+         <wsdl:input message="impl:findRequest" name="findRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findResponse" name="findResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addFileLocation">
+
+         <wsdl:input message="impl:addFileLocationRequest" name="addFileLocationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addFileLocationResponse" name="addFileLocationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addPath">
+
+         <wsdl:input message="impl:addPathRequest" name="addPathRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addPathResponse" name="addPathResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addLocation">
+
+         <wsdl:input message="impl:addLocationRequest" name="addLocationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addLocationResponse" name="addLocationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FileLocatorServiceSoapBinding" type="impl:FileLocatorService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="find">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addFileLocation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addFileLocationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addFileLocationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addPath">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addPathRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addPathResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addLocation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addLocationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addLocationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FileLocatorServiceService">
+
+      <wsdl:port binding="impl:FileLocatorServiceSoapBinding" name="FileLocatorService">
+
+         <wsdlsoap:address location="http://192.168.1.139:8080/Homework4SOAPService/services/FileLocatorService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
